@@ -6,10 +6,16 @@ on: [push]
 # Group of jobs to run as part of the workflow
 
 jobs:
-  job_id:
+  job_1:
     runs-on: ubuntu-latest
     env:
       JobVariable: "This is a job variable"
+    steps:
+      - run: echo "${{ env.JobVariable }}"
+  job_2:
+    runs-on: ubuntu-latest
+    env:
+      JobVariable: "This is another job variable which is different from the first"
     steps:
       - run: echo "${{ env.JobVariable }}"
    
