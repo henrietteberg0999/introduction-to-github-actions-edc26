@@ -1,0 +1,40 @@
+name: Workflow of exercise 2
+run-name: Exercise 2 workflow # Optional
+
+# Events triggering the workflow
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: 
+      - main
+  workflow_dispatch:
+# Group of jobs to run as part of the workflow
+jobs:
+  ubuntu_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, I'm ubuntu-latest"
+  
+  
+  macos_job:
+    runs-on: macos-latest
+    steps:
+      - run: echo "Hello, I'm macos-latest"
+  
+  
+  slow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sleep 30
+          echo "Hello, I'm ubuntu-latest"
+    timeout-minutes: 5
+  
+  waiting_job:
+    needs: slow_job
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls -l
+   
+
