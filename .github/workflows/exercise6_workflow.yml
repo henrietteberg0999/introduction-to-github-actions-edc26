@@ -1,0 +1,25 @@
+name: Workflow of exercise 6
+run-name: 6th workflow # Optional
+permissions: {}
+
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+# Label of the container job
+  container-job:
+  # Containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+    # Docker Hub image that `container-job`executes in
+    container: python:3.14-slim
+    steps:
+      - run: pandoc --template eisvogel exercises.md -o exercises.pdf
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v7
+        with:
+          name: my-artifact
+          path: new_file.txt
+          retention-days: 5
+            
+     
