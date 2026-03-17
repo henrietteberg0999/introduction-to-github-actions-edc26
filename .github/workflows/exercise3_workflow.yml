@@ -1,0 +1,10 @@
+env:
+  MyVariable: "Hello world"
+
+jobs:
+  job_id:
+    env:
+      JobVariable: "This is a job variable"
+    steps:
+      - run: echo "${JobVariable}"
+   
