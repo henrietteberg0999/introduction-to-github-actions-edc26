@@ -2,7 +2,9 @@ name: Workflow of exercise 3
 run-name: This is a variable workflow # Optional
 
 # Events triggering the workflow
-on: [push]
+on: 
+  push:
+  workflow_dispatch:
 # Group of jobs to run as part of the workflow
 
 jobs:
@@ -21,5 +23,7 @@ jobs:
   job_3:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ secrets.MY_EDC_SECRET}}"
-   
+      if: ${{ secrets.MY_EDC_SECRET == "2"}}
+      run: echo "${{ secrets.MY_EDC_SECRET}}"
+      else: 
+      run: echo "Did not match 2"
