@@ -20,7 +20,7 @@ jobs:
       - name: Install pandoc
         run: |
           apt-get update
-          apt-get install -y pandoc texlive-latex-base
+          apt-get install -y pandoc texlive-latex-base texlive-latex-recommended
 
       - name: Build PDF
         run: pandoc exercises.md -o exercises.pdf
