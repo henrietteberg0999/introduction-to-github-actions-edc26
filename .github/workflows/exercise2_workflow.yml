@@ -7,7 +7,7 @@ on:
     branches: [main]
   pull_request:
     branches: 
-      -main
+      - main
   workflow_dispatch:
 # Group of jobs to run as part of the workflow
 jobs:
