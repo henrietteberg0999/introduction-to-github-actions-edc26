@@ -18,4 +18,8 @@ jobs:
       JobVariable: "This is another job variable which is different from the first"
     steps:
       - run: echo "${{ env.JobVariable }}"
+  job_3:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ secrects.GITHUB_TOKEN}}"
    
