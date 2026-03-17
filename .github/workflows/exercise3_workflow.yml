@@ -7,6 +7,7 @@ on: [push]
 
 jobs:
   job_id:
+    runs-on: ubuntu-latest
     env:
       JobVariable: "This is a job variable"
     steps:
