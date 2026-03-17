@@ -1,5 +1,15 @@
+name: Workflow of exercise 3
+run-name: This is a variable workflow # Optional
+
+# Events triggering the workflow
+on: [push]
+# Group of jobs to run as part of the workflow
+
+  
 env:
   MyVariable: "Hello world"
+
+
 
 jobs:
   job_id:
