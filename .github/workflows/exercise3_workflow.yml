@@ -22,10 +22,12 @@ jobs:
       - run: echo "${{ env.JobVariable }}"
   job_3:
     runs-on: ubuntu-latest
+    env:
+      SECRET_VALUE: ${{ secrets.MY_EDC_SECRET }}
     steps:
       - name: Secret matched
-        if: ${{ secrets.MY_EDC_SECRET == '2' }}
-        run: echo "${{ secrets.MY_EDC_SECRET }}"
+        if: ${{ env.SECRET_VALUE == '2' }}
+        run: echo "${{ env.SECRET_VALUE }}"
       - name: Secret did not match
-        if: ${{ secrets.MY_EDC_SECRET != '2' }}
+        if: ${{ env.SECRET_VALUE != '2' }}
         run: echo "Did not match 2"
