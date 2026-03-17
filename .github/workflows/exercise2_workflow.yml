@@ -14,13 +14,13 @@ jobs:
   ubuntu_job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo Hello, I'm ubuntu-latest
+      - run: echo "Hello, I'm ubuntu-latest"
   
   
   macos_job:
     runs-on: macos-latest
     steps:
-      - run: echo Hello, I'm macos-latest
+      - run: echo "Hello, I'm macos-latest"
   
   
   slow_job:
