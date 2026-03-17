@@ -11,5 +11,5 @@ jobs:
     env:
       JobVariable: "This is a job variable"
     steps:
-      - run: echo "${JobVariable}"
+      - run: echo "${{ env.JobVariable }}"
    
