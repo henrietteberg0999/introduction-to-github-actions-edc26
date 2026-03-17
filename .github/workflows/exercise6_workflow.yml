@@ -7,19 +7,29 @@ on:
   workflow_dispatch:
 
 jobs:
-# Label of the container job
+  # Label of the container job
   container-job:
-  # Containers must run in Linux based operating systems
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job`executes in
     container: python:3.14-slim
     steps:
-      - run: python pandoc --template eisvogel exercises.md -o exercises.pdf
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pandoc
+        run: |
+          apt-get update
+          apt-get install -y pandoc texlive-latex-base
+
+      - name: Build PDF
+        run: pandoc exercises.md -o exercises.pdf
+
       - name: "Upload Artifact"
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
-          path: new_file.txt
+          name: exercises-pdf
+          path: exercises.pdf
           retention-days: 5
             
      
