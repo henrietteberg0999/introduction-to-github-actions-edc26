@@ -1,5 +1,6 @@
 name: Workflow of exercise 4
 run-name: 4th workflow # Optional
+permissions: {}
 
 on: 
   push:
