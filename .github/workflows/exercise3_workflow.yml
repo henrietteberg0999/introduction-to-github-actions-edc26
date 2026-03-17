@@ -23,7 +23,9 @@ jobs:
   job_3:
     runs-on: ubuntu-latest
     steps:
-      if: ${{ secrets.MY_EDC_SECRET == "2"}}
-      run: echo "${{ secrets.MY_EDC_SECRET}}"
-      else: 
-      run: echo "Did not match 2"
+      - name: Secret matched
+        if: ${{ secrets.MY_EDC_SECRET == '2' }}
+        run: echo "${{ secrets.MY_EDC_SECRET }}"
+      - name: Secret did not match
+        if: ${{ secrets.MY_EDC_SECRET != '2' }}
+        run: echo "Did not match 2"
