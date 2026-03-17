@@ -1,5 +1,6 @@
 name: Workflow of exercise 1
 run-name: This is the first workflow # Optional
+permissions: {}
 
 # Events triggering the workflow
 on: [push]

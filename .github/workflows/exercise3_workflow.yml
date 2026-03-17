@@ -1,5 +1,6 @@
 name: Workflow of exercise 3
 run-name: This is a variable workflow # Optional
+permissions: {}
 
 # Events triggering the workflow
 on: 
