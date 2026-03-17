@@ -1,5 +1,5 @@
 name: Workflow of exercise 1
-run-name: First workflow # Optional
+run-name: This is the first workflow # Optional
 # Events triggering the workflow
 on: [push]
 # Group of jobs to run as part of the workflow
