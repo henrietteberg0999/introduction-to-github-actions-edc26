@@ -32,8 +32,9 @@ jobs:
     timeout-minutes: 1
   
   waiting_job:
+    needs: slow_job
     runs-on: ubuntu-latest
     steps:
-      -run: echo Hello, I'm ubuntu-latest
+      -run: ls -l
    
 
